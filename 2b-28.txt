@@ -1,0 +1,33 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{ int n,m,sum=0;
+  cin>>n>>m;
+  vector<int>v;
+  f(i,n)
+  {
+      int a;
+      cin>>a;
+      v.push_back(a);
+  }
+  sort(v.begin(),v.end());
+
+f(i,m)
+{
+    if(v[i]<0)
+        {sum +=v[i];}
+
+}
+cout<<abs(sum);
+}
