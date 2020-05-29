@@ -1,0 +1,29 @@
+
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
+#define f(i,n) for(int i=0;i<n;i++)
+
+int main()
+{  long int  n,l,s[1005];
+    double m=0.000000000,k;
+   cin>>n>>l;
+   f(i,n)
+   {
+       cin>>s[i];
+   }
+   sort(s,s+n);
+  f(i,n-1)
+  {
+      if (m<(s[i+1]-s[i]))
+        {
+             m = s[i+1]-s[i];
+             
+        }
+  }
+   k =(max((m/2),double(max(s[0],l-s[n-1]))));
+  cout << setprecision(10) << fixed;
+  cout<<k;
+}

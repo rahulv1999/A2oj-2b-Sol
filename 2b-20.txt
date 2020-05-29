@@ -1,0 +1,39 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{  string n;
+int cnt=0;
+ cin>>n;
+ map<char, int>m;
+ for(char i='a';i<'{';i++)
+    m[i]=0;
+ f(i,n.size())
+ m[n[i]]++;
+
+ for(char i='a';i<'{';i++)
+  if(m[i]>0 && m[i]%2==1)
+    cnt++;
+
+
+if(cnt==0)
+    cout<<"First";
+else if(cnt%2==1)
+    cout<<"First";
+else
+    cout<<"Second";
+
+  }
+
+
+

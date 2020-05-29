@@ -1,0 +1,43 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main()
+{
+   int n,m,s[100002],cnt = 0,k,l,z=0;
+   cin>>n>>m>>k;
+   for(int i=0;i<m+1;i++)
+   {
+       cin>>s[i];
+   }
+    int j = s[m];
+       l=0;
+       while(j>0)
+       {
+           z += j%2;
+           j /=2;
+        }
+
+   for(int i=0;i<m;i++)
+   {  int u=0;
+       l=0;
+        int j = s[i];
+         while(j>0)
+       {
+           u += j%2;
+           j /=2;
+        }
+         j = (s[i] & s[m]);
+
+       while(j>0)
+       {
+           l += j%2;
+           j /=2;
+        }
+      
+       if(abs(u+z-2*l)<=k)
+       cnt++;
+   }
+   cout<<cnt;
+
+}

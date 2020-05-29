@@ -1,0 +1,42 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{ long int n,t,m=0,i=0,j=0,sum=0;
+    cin>>n>>t;
+     vector<int> v;
+     f(i,n)
+     {
+         int a;cin>>a;
+         v.push_back(a);
+     }
+    while(j<n)
+    {
+        if(sum<=t)
+        {sum +=v[j];
+           j++;
+
+        }
+        if(sum>t)
+        {
+            sum -=v[i];
+            i++;
+        }
+        m = max(j-i,m);
+    }
+
+     cout<<m;
+  }
+
+
+

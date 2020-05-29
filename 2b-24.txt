@@ -1,0 +1,62 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{ int n,k,minv,maxv;
+cin>>n>>k;
+vector<int>vi;
+f(i,n)
+{
+    int a;
+    cin>>a;
+    vi.push_back(a);
+}
+maxv = *max_element(vi.begin(),vi.end());
+minv = *min_element(vi.begin(),vi.end());
+ if(maxv - minv > k)
+ {
+     cout<<"NO";
+     return 0;
+ }
+
+ vector<vector<int>>vo(n);
+ for(int i=1;i<=k;)
+   {  f(l,n)
+       while(l-minv<1 && i==1)
+     {
+         f(j,n)
+         { if(vi[j]>=i)
+            vo[j].push_back(i);
+         }
+       l++;
+     }
+     if(i>1)
+     {
+         f(j,n)
+         { if(vi[j]>=i)
+            vo[j].push_back(i);
+         }
+     }
+     
+     i++;
+
+   }
+ cout<<"YES"<<endl;
+ f(i,n)
+ {
+     f(j,vi[i])
+     cout<<vo[i][j]<<" ";
+     cout<<endl;
+ }
+
+  }

@@ -1,0 +1,58 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+
+using namespace std;
+#define f(i,n) for(int i=0;i<n;i++)
+int isprime(int n);
+int main()
+{ string n;
+  int l=0,z,m=0,m2=0;
+  vector<long int>v;
+  cin>>n;
+  l = n.size();
+  f(i,l)
+  {
+    int z = int(n[i])-48;
+    v.push_back(z);
+
+  }
+  f(i,l)
+  {
+      if(v[i]%2==0 && v[i]<v[l-1])
+        {m = v[i];
+        v[i]  = v[l-1];
+        v[l-1] = m;
+        m2=1;
+        break;
+        }
+
+  }
+   if(m2==0)
+   for(int i=l-2; i>=0;i--)
+  {
+       if(v[i]%2==0)
+        {m = v[i];
+        v[i]  = v[l-1];
+        v[l-1] = m;
+       m2=1;
+        break;}
+
+  }
+   if(m2)
+  f(i,l)
+  {
+      cout<<v[i];
+  }
+  else
+    cout<<"-1";
+
+
+
+
+}

@@ -1,0 +1,33 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
+#define f(i,n) for(int i=0;i<n;i++)
+
+int main()
+{  long int  n,l=0,s[100005],m=0,a=0,b=0;
+   cin>>n;
+   f(i,n)
+   {
+       cin>>s[i];
+   }
+  f(i,n-1)
+  {
+      if(s[i]>s[i+1])
+     {  a=i;
+         while(s[i]>s[i+1])
+          i++;
+        b=i;m++;
+     }
+   }
+ b = b+1>n?b-1:b;
+
+  if((m==1 && b+1==n && s[a-1]<s[b]) ||(s[a]<s[b+1] && a==0)  || (m==1 && b+1==n && a==0) || (m==1 && b+1!=n && s[a-1]<s[b] && s[a]<s[b+1]))
+    cout<<"yes"<<endl<<a+1<<" "<<b+1;
+  else if (m==0)
+        cout<<"yes"<<endl<<a+1<<" "<<b+1;
+  else
+    cout<<"no";
+
+}

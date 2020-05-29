@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl;
+using namespace std;
+
+
+int main()
+{ int n,m,cnt=0,j=0;
+  cin>>n>>m;
+  vector<int>vn;
+  vector<int>vm;
+  f(i,n)
+  {   int a;cin>>a;
+      vn.push_back(a);}
+  f(i,m)
+  {  int a;cin>>a;
+      vm.push_back(a);
+
+  }
+
+ f(i,n)
+ while(j<m)
+ {
+     if(vm[j]>=vn[i])
+     {
+         cnt++;i++;
+     }j++;
+ }
+ cout<<max(0,n-cnt)<<endl;
+}

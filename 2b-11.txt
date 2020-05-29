@@ -1,0 +1,27 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+
+using namespace std;
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+int isprime(int n);
+int main()
+{
+   long int r,x1,y1,x2,y2;
+   cin>>r>>x1>>y1>>x2>>y2;
+  long double d = sqrt(pow((x2-x1),2)+pow((y2-y1),2));
+   //chk(d);
+   if( (d/(2*r)) == double(int (d/(2*r))))
+    cout<<int(d)/(2*r);
+
+   else
+    cout<<(int(d)/(2*r) + 1);
+
+
+}

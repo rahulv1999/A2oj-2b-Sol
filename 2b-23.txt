@@ -1,0 +1,56 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{ long int p,q,l,r,k,cnt=0;
+  cin>>p>>q>>l>>r;
+  vector<vector<int>>v1,v2;
+  f(i,p)
+  {
+      int a,b;
+      cin>>a>>b;
+      vector<int>r;
+      r.push_back(a);
+      r.push_back(b);
+      v1.push_back(r);
+  }
+  f(i,q)
+  {
+      int a,b;
+      cin>>a>>b;
+      vector<int>r;
+      r.push_back(a);
+      r.push_back(b);
+      v2.push_back(r);
+  }
+  for(int y =l;y<r+1;y++)
+  {  k=0;
+    f(i,p)
+    { f(j,q)
+      {
+          if(((v2[j][1]+y-v1[i][0])*(v2[j][1]+y-v1[i][1])) <=0 || (v2[j][0]+y-v1[i][0])*(v2[j][0]+y-v1[i][1]) <=0 )
+            {k=1; break;}
+          if(((v2[j][1]+y-v1[i][0])*(v2[j][1]+y-v1[i][1])) >0 && (v2[j][0]+y-v1[i][0])*(v2[j][0]+y-v1[i][1]) >0 && v2[j][0]+y<v1[i][0]  && v2[j][1]+y>v1[i][1])
+            {k=1; break;}
+      }
+
+    }
+    if(k==1)
+        cnt++;
+
+  }
+
+
+chk(cnt);
+
+  }

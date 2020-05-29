@@ -1,0 +1,46 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{  long int n,m;
+  vector< long int>v;
+  cin>>n>>m;
+  f(i,m)
+  {   long int a;
+     cin>>a;
+      v.push_back(a);
+  }
+  sort(v.begin(),v.end());
+  if(m==0)
+    {cout<<"YES";return 0;}
+  if(v[m-1] == n || v[0] == 1 )
+   {
+       cout<<"NO";return 0;
+   }
+  f(i,m-2)
+  {
+      int k=0;
+      if(v[i]+1 == v[i+1])
+      k++;
+      if(v[i]+2 == v[i+2])
+      k++;
+    if(k==2)
+    {cout<<"NO";return 0;}
+  }
+  cout<<"YES";
+return 0;
+
+  }
+
+
+

@@ -1,0 +1,66 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+#define f(i,n) for(int i=0;i<n;i++)
+#define chk(d) cout<<d<<endl
+using namespace std;
+
+
+int main()
+{   int autom =0,z=0,l=0;
+    string a,b;
+    cin>>a>>b;
+    map<char, int>ma;
+    map<char, int>mb;
+
+    for(char i ='a';i<'{';i++)
+        {
+            ma[i]=0;
+            mb[i]=0;
+
+        }
+
+    f(i,a.size())
+    {
+        ma[a[i]]++;
+    }
+    f(i,b.size())
+    {
+        mb[b[i]]++;
+    }
+
+
+    f(i,b.size())
+        if(ma[b[i]]<mb[b[i]] || a.size()<b.size())
+         {
+       cout<<"need tree";
+       return 0;
+   }
+//chk(z);
+
+
+
+   f(i,a.size())
+   if(a[i] == b[l])
+        l++;
+
+   if(l>=b.size())
+    autom=1;
+   if(autom==1)
+    cout<<"automaton";
+   else if (a.size()==b.size())
+    cout<<"array";
+   else
+    cout<<"both";
+
+
+
+  }
+
+
+

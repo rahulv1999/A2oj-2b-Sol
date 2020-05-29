@@ -1,0 +1,36 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <map>
+#include <cmath>
+using namespace std;
+#define f(i,n) for(int i=0;i<n;i++)
+int isprime(int n);
+int main()
+{
+    int m,sum=0;
+    string n;
+    cin>>n>>m;
+    vector<int>v;
+    f(i,26)
+    {  int z;
+        cin>>z;
+        v.push_back(z);
+    }
+  f(i,n.size())
+  {
+    sum += (i+1) * v[int(n[i])-97] ;
+  }
+ sort(v.begin(), v.end());
+ v.erase( unique( v.begin(), v.end() ), v.end() );
+
+ for(int i=n.size() +1;i<=n.size()+ m;i++)
+  {
+    sum += (i) * v[v.size()-1] ;
+  }
+cout<<sum<<endl;
+
+}
